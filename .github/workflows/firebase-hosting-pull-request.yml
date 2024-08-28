@@ -27,3 +27,14 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MINIBLOG_VICTOR_NICOLAU }}
           channelId: live
           projectId: miniblog-victor-nicolau
+
+                # Checkout the repository
+      - uses: actions/checkout@v4
+
+      # Navigate to the project directory, install dependencies, build the project, and copy the 'dist' directory to the root
+      - run: |
+          cd ./minideiablog
+          npm ci
+          npm run build
+          cp -r dist ../
+
